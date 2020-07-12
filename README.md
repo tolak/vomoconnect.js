@@ -1,37 +1,38 @@
-[![npm](https://img.shields.io/npm/v/steemconnect.svg)](https://www.npmjs.com/package/steemconnect)
-![npm](https://img.shields.io/npm/dm/steemconnect.svg)
-![CircleCI](https://img.shields.io/circleci/project/github/bonustrack/steemconnect.js.svg)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/bonustrack/steemconnect.js/master/LICENSE)
+[![npm](https://img.shields.io/npm/v/vomoconnect.svg)](https://www.npmjs.com/package/vomoconnect)
+![npm](https://img.shields.io/npm/dm/vomoconnect.svg)
+![CircleCI](https://img.shields.io/circleci/project/github/bonustrack/vomoconnect.js.svg)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/bonustrack/vomoconnect.js/master/LICENSE)
 
-# SteemConnect.js
+# VomoConnect.js
 
-The official SteemConnect JavaScript SDK.
+The vomo connector JavaScript SDK, help build sign app under steem, hive and other blockchain.
 
 ## Getting started
 
-To install and run SteemConnect.js, follow this quick start guide
+To install and run vomoconnect.js, follow this quick start guide
 
 ### Install
 
-SteemConnect.js was designed to work both in the browser and in Node.js.
+VomoConnect.js was designed to work both in the browser and in Node.js.
 
 #### Node.js
-To install SteemConnect.js on Node.js, open your terminal and run:
+To install VomoConnect.js on Node.js, open your terminal and run:
 ```
-npm i steemconnect --save
+npm i vomoconnect --save
 ```
 
 #### Browser
 
-You can create an index.html file and include SteemConnect.js with:
+You can create an index.html file and include VomoConnect.js with:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/steemconnect"></script>
+<script src="https://cdn.jsdelivr.net/npm/vomoconnect"></script>
 ```
 
 ### Usage
 
-For general information about SteemConnect and setting up your app you can checkout the developer documentation.
+For general information about VomoConnect and setting up your app you can checkout the developer documentation.
+It is same as SteemConnect.
 
 **[Developers documentation](https://beta.steemconnect.com/developers)**
 
@@ -40,18 +41,18 @@ For general information about SteemConnect and setting up your app you can check
 ### Init client
 Call the Client() method when your app first loads to init the SDK:
 ```
-var steemconnect = require('steemconnect');
+var vomoconnect = require('vomoconnect');
 
-var client = new steemconnect.Client({
+var client = new vomoconnect.Client({
   app: 'staging.app',
-  callbackURL: 'https://demo.steemconnect.com',
+  callbackURL: 'https://demo.vomoconnect.com',
   scope: ['vote', 'comment']
 });
 ```
 Parameters:
-- __app__: This is the name of the app that was registered in the SteemConnect V2 dashboard
-- __callbackURL__: This is the URL that users will be redirected to after interacting with SteemConnect. It must be listed in the "Redirect URI(s)" list in the app settings EXACTLY the same as it is specified here
-- __accessToken__: If you have an oauth2 access token for this user already you can specify it here, otherwise you can leave it and set it later using steemconnect.setAccessToken(accessToken).
+- __app__: This is the name of the app that was registered in the VomoConnect V2 dashboard
+- __callbackURL__: This is the URL that users will be redirected to after interacting with VomoConnect. It must be listed in the "Redirect URI(s)" list in the app settings EXACTLY the same as it is specified here
+- __accessToken__: If you have an oauth2 access token for this user already you can specify it here, otherwise you can leave it and set it later using vomoconnect.setAccessToken(accessToken).
 - __scope__: This is a list of operations the app will be able to access on the user's account. For a complete list of scopes see: [https://github.com/bonustrack/steemconnect/wiki/OAuth-2#scopes](https://github.com/bonustrack/steemconnect/wiki/OAuth-2#scopes)
 
 ### Universal log in
@@ -62,7 +63,7 @@ This method trigger SteemConnect Chrome extension or Steem Keychain for log in, 
 var params = {};
 
 // The "username" parameter is required prior to log in for "Steem Keychain" users.
-if (steemconnect.useSteemKeychain) {
+if (vomoconnect.useSteemKeychain) {
   params = { username: 'fabien' };
 }
 
@@ -75,7 +76,7 @@ client.login(params, function(err, token) {
 The following method returns a URL that you can redirect the user to so that they may log in to your app through SteemConnect:
 ```
 var link = client.getLoginURL(state);
-// => https://steemconnect.com/oauth2/authorize?client_id=[app]&redirect_uri=[callbackURL]&scope=vote,comment&state=[state]
+// => https://vomoconnect.com/oauth2/authorize?client_id=[app]&redirect_uri=[callbackURL]&scope=vote,comment&state=[state]
 ```
 Parameters:
 - __state__: Data that will be passed to the callbackURL for your app after the user has logged in.
@@ -194,7 +195,7 @@ const op = ['transfer', {
   to: 'fabien',
   amount: '0.001 STEEM'
 }];
-steemconnect.sendOperation(op, {}, function(err, result) {
+vomoconnect.sendOperation(op, {}, function(err, result) {
   console.log(err, result);
 });
 ```
