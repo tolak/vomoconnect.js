@@ -1,15 +1,15 @@
 {
-  "name": "steemconnect",
+  "name": "vomoconnect",
   "version": "3.0.4",
-  "description": "The official SteemConnect JavaScript SDK",
-  "homepage": "https://steemconnect.com",
-  "browser": "dist/steemconnect.min.js",
+  "description": "The VomoConnect JavaScript SDK, help build sign app under steem, hive and other blockchain.",
+  "homepage": "https://vomo.fun",
+  "browser": "dist/vomoconnect.min.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/steemit/steemconnect.js.git"
+    "url": "https://github.com/tolak/vomoconnect.js.git"
   },
   "bugs": {
-    "url": "https://github.com/steemit/steemconnect.js/issues"
+    "url": "https://github.com/tolak/vomoconnect.js/issues"
   },
   "main": "lib/index.js",
   "files": [
