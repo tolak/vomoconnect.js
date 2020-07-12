@@ -48,6 +48,7 @@ const sendOperation = (op, params, cb) => {
 
 class Client {
   constructor(config) {
+    this.baseURL = config.baseURL || BASE_URL;
     this.apiURL = config.apiURL || API_URL;
     this.app = config.app;
     this.callbackURL = config.callbackURL;
@@ -56,10 +57,8 @@ class Client {
     this.responseType = config.responseType;
   }
 
-  setBaseURL() {
-    console.warn(
-      'The function "setBaseUrl" is deprecated, the base URL is always "https://steemconnect.com", you can only change the API URL with "setApiURL"',
-    );
+  setBaseURL(url) {
+    this.baseURL = url;
     return this;
   }
 
