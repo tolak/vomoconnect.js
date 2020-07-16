@@ -94,7 +94,7 @@ class Client {
 
   getLoginURL(state) {
     const redirectUri = encodeURIComponent(this.callbackURL);
-    let loginURL = `${BASE_URL}/oauth2/authorize?client_id=${this.app}&redirect_uri=${redirectUri}`;
+    let loginURL = `${this.baseURL}/oauth2/authorize?client_id=${this.app}&redirect_uri=${redirectUri}`;
     if (this.responseType === 'code') loginURL += `&response_type=${this.responseType}`;
     if (this.scope) loginURL += `&scope=${this.scope.join(',')}`;
     if (state) loginURL += `&state=${encodeURIComponent(state)}`;
@@ -305,7 +305,7 @@ const sign = (name, params, redirectUri) => {
       error_description: 'Request has an invalid format',
     };
   }
-  let url = `${BASE_URL}/sign/${name}?`;
+  let url = `${this.baseURL}/sign/${name}?`;
   url += Object.keys(params)
     .map(key => `${key}=${encodeURIComponent(params[key])}`)
     .join('&');
