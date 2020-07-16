@@ -1,0 +1,23 @@
+{
+    "name": "02_steemconnect",
+    "version": "1.0.0",
+    "description": "Getting started with Steemconnect",
+    "main": "index.js",
+    "scripts": {
+        "start": "cp ../dist/vomoconnect.min.js ./public/ && node ./index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^0.19.2",
+        "koa": "^2.5.3",
+        "koa-static": "^5.0.0",
+        "sc2-sdk": "^2.0.1"
+    },
+    "devDependencies": {
+        "webpack": "^4.20.2",
+        "webpack-cli": "^3.1.2",
+        "webpack-dev-server": "^3.1.9"
+    }
+}
